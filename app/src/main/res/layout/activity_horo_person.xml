@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context=".Controller.HoroPerson">
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Tử vi cá nhân"-->
+<!--        android:textSize="40dp"-->
+<!--        android:fontFamily="@font/icielamerigraf"-->
+<!--        android:textColor="#ee9561"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.131" />-->
+
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:layout_margin="50dp"-->
+<!--        android:background="@drawable/et_line"-->
+<!--        android:hint="Họ và tên"-->
+<!--        android:paddingStart="12dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textColorHint="#878787"-->
+
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.295" />-->
+
+<!--    <EditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:layout_margin="50dp"-->
+<!--        android:background="@drawable/et_line"-->
+<!--        android:hint="dd/mm/yyyy"-->
+<!--        android:paddingStart="12dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textColorHint="#878787"-->
+
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.422" />-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:translationZ="-1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_horo_person"
+        android:contentDescription="" />
+
+<!--    <com.ismaeldivita.chipnavigation.ChipNavigationBar-->
+<!--        android:id="@+id/chip_navigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true" />-->
+
+    <FrameLayout
+        android:id="@+id/horo_person_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="90dp"/>
+
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/meowNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+
+        android:layout_marginBottom="0dp"
+        app:mbn_backgroundBottomColor="@color/backgroundBottomColor"
+        app:mbn_circleColor="@color/circleColor"
+        app:mbn_countBackgroundColor="@color/countBackgroundColor"
+        app:mbn_countTextColor="@color/countTextColor"
+        app:mbn_defaultIconColor="@color/defaultIconColor"
+        app:mbn_selectedIconColor="@color/selectedIconColor"
+        app:mbn_shadowColor="@color/shadowColor" />
+
+</RelativeLayout>
