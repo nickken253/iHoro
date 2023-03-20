@@ -11,10 +11,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.ihoro.R;
 
-public class FragmentPersonInfor extends Fragment {
+public class FragmentNumber extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_horo_person_infor, container, false);
+        return inflater.inflate(R.layout.fragment_number, container, false);
     }
 }

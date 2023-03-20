@@ -2,16 +2,13 @@ package com.example.ihoro.View;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
@@ -23,7 +20,7 @@ import com.example.ihoro.R;
 
 import java.util.Calendar;
 
-public class FragmentPersonView extends Fragment {
+public class FragmentPerson extends Fragment {
 
     EditText etDate;
     EditText etTime;
@@ -33,7 +30,7 @@ public class FragmentPersonView extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_horo_person_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_person, container, false);
 
         etDate = (EditText) view.findViewById(R.id.et_birthday);
         etTime = (EditText) view.findViewById(R.id.et_time);
