@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">iHoro</string>
-    
+    <string name="person">Tử vi cá nhân</string>
+    <string name="couple">Tử vi cặp đôi</string>
+    <string name="numerology">Thần số học</string>
+    <string name="saved">Hồ sơ đã lưu</string>
+    <string name="infor">Tổng quan</string>
     <color name="selectedIconColor">#ee9561</color>
     <color name="defaultIconColor">#F6F6F6</color>
     <color name="countTextColor">#fff</color>

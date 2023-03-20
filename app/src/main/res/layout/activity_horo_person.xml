@@ -5,55 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000"
+    android:id="@+id/drawer_layout"
     tools:context=".Controller.HoroPerson">
 
-<!--    <TextView-->
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/layout_tool_bar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?actionBarSize"-->
+
+<!--            android:gravity="center_vertical"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:paddingStart="15dp"-->
+<!--            android:paddingEnd="15dp"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/image_menu"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginBottom="0dp"-->
+<!--                android:src="@drawable/btn_menu"/>-->
+<!--        </LinearLayout>-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/navigation_view"-->
 <!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Tử vi cá nhân"-->
-<!--        android:textSize="40dp"-->
-<!--        android:fontFamily="@font/icielamerigraf"-->
-<!--        android:textColor="#ee9561"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.131" />-->
+<!--        android:background="@color/backgroundColor"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:itemTextAppearance="@style/TextViewStyle"-->
+<!--        app:itemIconTint="@color/white"-->
+<!--        app:menu="@menu/navigation_menu"-->
+<!--        />-->
 
-<!--    <EditText-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
 
-<!--        android:layout_margin="50dp"-->
-<!--        android:background="@drawable/et_line"-->
-<!--        android:hint="Họ và tên"-->
-<!--        android:paddingStart="12dp"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textColorHint="#878787"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.295" />-->
-
-<!--    <EditText-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-
-<!--        android:layout_margin="50dp"-->
-<!--        android:background="@drawable/et_line"-->
-<!--        android:hint="dd/mm/yyyy"-->
-<!--        android:paddingStart="12dp"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textColorHint="#878787"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.422" />-->
 
     <ImageView
         android:id="@+id/imageView"
@@ -61,14 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_horo_person"
-        android:contentDescription="" />
-
-<!--    <com.ismaeldivita.chipnavigation.ChipNavigationBar-->
-<!--        android:id="@+id/chip_navigation"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true" />-->
+        android:src="@drawable/bg_horo_person" />
 
     <FrameLayout
         android:id="@+id/horo_person_fragment_container"
@@ -81,7 +63,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-
 
         android:layout_marginBottom="0dp"
         app:mbn_backgroundBottomColor="@color/backgroundBottomColor"

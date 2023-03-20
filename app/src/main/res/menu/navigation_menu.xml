@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_person"
+        android:icon="@drawable/baseline_person_outline_24"
+        android:title="@string/person"
+        android:iconTint="@color/white"/>
+    <item
+        android:id="@+id/menu_couple"
+        android:icon="@drawable/outline_couple_24"
+        android:title="@string/couple"/>
+    <item
+        android:id="@+id/menu_number"
+        android:icon="@drawable/outline_shape_line_24"
+        android:title="@string/numerology"/>
+    <item
+        android:id="@+id/menu_saved"
+        android:icon="@drawable/outline_save_24"
+        android:title="@string/saved"/>
+    <item
+        android:id="@+id/menu_infor"
+        android:icon="@drawable/baseline_library_books_24"
+        android:title="@string/infor"/>
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/menu_1"
+                android:icon="@drawable/outline_map_24"
+                android:title="HoroMap"/>
+            <item
+                android:id="@+id/menu_2"
+                android:icon="@drawable/outline_settings_24"
+                android:title="Setting"/>
+        </menu>
+    </item>
+</menu>
