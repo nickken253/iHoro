@@ -54,14 +54,7 @@ public class FragmentPerson extends Fragment {
         sc_hasTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!sc_hasTime.isChecked())
-                {
-                    etTime.setFocusable(false);
-//                    etTime.setText("");
-                }
-                else {
-                    etTime.setFocusable(true);
-                }
+
             }
         });
         etTime.setOnFocusChangeListener(new View.OnFocusChangeListener() {

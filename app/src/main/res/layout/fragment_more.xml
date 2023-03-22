@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.MainActivity"
+    android:id="@+id/mainLayout">
+
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_horo_person"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/btn_person"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.182" />-->
+
+<!--    &lt;!&ndash;    <Button&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/bt_run"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="250dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:background="@drawable/btn_orange"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="Testing Button"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.496"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintVertical_bias="0.897" />&ndash;&gt;-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_horo_couple"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/btn_couple"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.369" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_number"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/btn_number"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.56" />-->
+
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:fontFamily="@font/icielamerigraf"
+        android:text="Dịch vụ khác"
+        android:textColor="#ee9561"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131"  />
+
+    <Button
+        android:id="@+id/btn_my_info"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:background="@drawable/btn_background"
+        android:drawableTop="@drawable/outline_person_pin_24"
+        android:drawablePadding="10sp"
+        android:drawableTint="@color/orangeColor"
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="30sp"
+        android:paddingRight="10dp"
+        android:text="Thông tin cá nhân"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_more_info"
+        app:layout_constraintEnd_toStartOf="@+id/btn_link"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_more"
+        app:layout_constraintVertical_bias="0.076">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_link"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:background="@drawable/btn_background"
+        android:drawableTop="@drawable/outline_link_24"
+        android:drawablePadding="10sp"
+        android:drawableTint="@color/orangeColor"
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="30sp"
+        android:paddingRight="10dp"
+        android:text="Kết nối"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_setting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@+id/btn_my_info"
+        app:layout_constraintTop_toBottomOf="@id/tv_more"
+        app:layout_constraintVertical_bias="0.076">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_more_info"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:background="@drawable/btn_background"
+        android:drawableTop="@drawable/outline_menu_book_24"
+        android:drawablePadding="10sp"
+        android:drawableTint="@color/orangeColor"
+        android:gravity="center_horizontal"
+        android:paddingTop="30sp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:text="Tổng quan về tử vi"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_map"
+        app:layout_constraintEnd_toStartOf="@+id/btn_setting"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_my_info"
+        app:layout_constraintVertical_bias="0.033">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_setting"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:background="@drawable/btn_background"
+        android:drawableTop="@drawable/outline_settings_24"
+        android:drawablePadding="10sp"
+        android:drawableTint="@color/orangeColor"
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="30sp"
+        android:paddingRight="10dp"
+        android:text="Cài đặt"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_app_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@+id/btn_more_info"
+        app:layout_constraintTop_toBottomOf="@id/btn_link"
+        app:layout_constraintVertical_bias="0.031">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_map"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:background="@drawable/btn_background"
+        android:drawableTop="@drawable/outline_map_48"
+        android:drawablePadding="10sp"
+        android:drawableTint="@color/orangeColor"
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="30sp"
+        android:paddingRight="10dp"
+        android:text="Bản đồ"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/nav"
+        app:layout_constraintEnd_toStartOf="@+id/btn_app_info"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_more_info"
+        app:layout_constraintVertical_bias="0.05">
+
+    </Button>
+
+    <FrameLayout
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.997"
+        tools:layout_editor_absoluteX="0dp">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btn_app_info"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:background="@drawable/btn_background"
+        android:drawableTop="@drawable/outline_info_24"
+        android:drawablePadding="10sp"
+        android:drawableTint="@color/orangeColor"
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingTop="30sp"
+        android:paddingRight="10dp"
+        android:text="Thông tin ứng dụng"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toEndOf="@+id/btn_map"
+        app:layout_constraintTop_toBottomOf="@id/btn_setting"
+        app:layout_constraintVertical_bias="0.054">
+
+    </Button>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

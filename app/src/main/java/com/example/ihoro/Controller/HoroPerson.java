@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.ihoro.R;
 import com.example.ihoro.View.FragmentCouple;
+import com.example.ihoro.View.FragmentMore;
 import com.example.ihoro.View.FragmentNumber;
 import com.example.ihoro.View.FragmentSaved;
 import com.example.ihoro.View.FragmentInfor;
@@ -26,6 +27,7 @@ public class HoroPerson extends AppCompatActivity {
     private final int ID_NUMBER = 3;
     private final int ID_SAVED = 4;
     private final int ID_INFOR = 5;
+    private int preChoose = 1;
     private Fragment selectedFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,22 +60,43 @@ public class HoroPerson extends AppCompatActivity {
             public void onClickItem(MeowBottomNavigation.Model item) {
                 switch (item.getId())
                 {
-                    case ID_PERSON: selectedFragment = new FragmentPerson();
+                    case ID_PERSON:
+                    {
+                        selectedFragment = new FragmentPerson();
+//                        preChoose = 1;
                         break;
-                    case ID_COUPLE: selectedFragment = new FragmentCouple();
+                    }
+                    case ID_COUPLE:
+                    {
+                        selectedFragment = new FragmentCouple();
+//                        preChoose = 2;
                         break;
+                    }
+                    case ID_NUMBER:
+                    {
+                        selectedFragment = new FragmentNumber();
+//                        preChoose = 3;
+                        break;
+                    }
+                    case ID_SAVED:
+                    {
+                        selectedFragment = new FragmentSaved();
+//                        preChoose = 4;
+                        break;
+                    }
+                    case ID_INFOR:
+                    {
+                         selectedFragment = new FragmentMore();
+//                        bottomNavigation.show(preChoose, true);
 
-                    case ID_NUMBER: selectedFragment = new FragmentNumber();
                         break;
+                    }
 
-                    case ID_SAVED: selectedFragment = new FragmentSaved();
-                        break;
-                    case ID_INFOR: selectedFragment = new FragmentInfor();
-                        break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.horo_person_fragment_container, selectedFragment).commit();
             }
         });
+        // bottomNavigation.setSelected();
         bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
             @Override
             public void onReselectItem(MeowBottomNavigation.Model item) {

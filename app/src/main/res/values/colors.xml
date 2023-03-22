@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#1F1F1F</color>
-    <color name="backgroundColorDark">#151515</color>
+    <color name="backgroundColorDark">#181818</color>
     <color name="orangeColor">#EE9561</color>
+    <color name="strokeColor">#353635</color>
 </resources>
