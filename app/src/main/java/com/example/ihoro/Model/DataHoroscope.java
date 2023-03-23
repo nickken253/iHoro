@@ -12,6 +12,7 @@ public class DataHoroscope {
     private List<String> days;
     private List<List<String>> PhaSanVo;
     private List<List<String>> PhaSanChong;
+    private List<String> GioSinh;
     public DataHoroscope()
     {
         //Ngày tốt ngày xấu
@@ -78,5 +79,9 @@ public class DataHoroscope {
         String[] ChongTmp1 = {"Thân", "Tý", "Thìn"};
         tmp = Arrays.asList(VoTmp1);
         PhaSanChong.add(tmp);
+
+        //Giờ sinh
+        String[] gio = {"Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu"};
+
     }
 }

@@ -18,6 +18,24 @@ public class Person {
     private int minute;
     private String lunerHour;
     private int gender;
+    private String Can;
+    private String Chi;
+
+    public String getCan() {
+        return Can;
+    }
+
+    public void setCan(String can) {
+        Can = can;
+    }
+
+    public String getChi() {
+        return Chi;
+    }
+
+    public void setChi(String chi) {
+        Chi = chi;
+    }
 
     public int getId() {
         return id;
