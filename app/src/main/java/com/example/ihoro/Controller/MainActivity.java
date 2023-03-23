@@ -1,43 +1,49 @@
 package com.example.ihoro.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ihoro.Model.AppDatabase;
+import com.example.ihoro.Model.DataHoroscope;
+import com.example.ihoro.Model.Person;
+import com.example.ihoro.Model.PersonDAO;
 import com.example.ihoro.R;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
 
-    private Button btn_test;
-    private Button btn_horoPerson;
-    private Button btn_horoCouple;
-    private Button btn_number;
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        onClick();
-    }
-    public void onClick()
-    {
-        btn_test = (Button) findViewById(R.id.bt_run);
-        btn_test.setOnClickListener(v -> {
-            Context context = getApplicationContext();
-            Toast toast = Toast.makeText(context, (CharSequence) "Clicked", Toast.LENGTH_SHORT);
-            toast.show();
-        });
+        AppDatabase database = Room.databaseBuilder(this, AppDatabase.class, "mydb")
+                .allowMainThreadQueries()
+                .build();
 
-        btn_horoPerson = (Button) findViewById(R.id.btn_horo_person);
-        btn_horoPerson.setOnClickListener(v -> {
-            Intent intent = new Intent(this, HoroPerson.class);
-            startActivity(intent);
-        });
+        PersonDAO personDAO = database.getPersonDAO();
+        DataHoroscope dataHoroscope = new DataHoroscope();
+        Person person = new Person();
+        List<Person> persons = personDAO.getAllPersons();
+//        person.setName(dataHoroscope.month.get((persons.size()) % 4));
+        person.setId(persons.size() + 1);
+        person.setLunerHour("Item 001");
+//         personDAO.delete(person);
+        personDAO.insert(person);
+//        Person personn = personDAO.getPersonById(1);
+//        Log.e("COUNT", dataHoroscope.month.get((persons.size()) % 4));
+
+//        Log.e("CHECK: ", "Xin chào các bạn");
+        database.close();
     }
+
 }

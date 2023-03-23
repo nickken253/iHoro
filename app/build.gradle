@@ -42,10 +42,7 @@ dependencies {
     implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.10'
 
-    //
-    implementation 'com.makeramen:roundedimageview:2.3.0'
-
-    //
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    // Room database
+    implementation  "android.arch.persistence.room:runtime:1.1.1"
+    annotationProcessor  "android.arch.persistence.room:compiler:1.1.1"
 }
