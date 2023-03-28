@@ -2,11 +2,15 @@ package com.example.ihoro.View;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
@@ -22,25 +26,29 @@ import java.util.Calendar;
 
 public class FragmentPerson extends Fragment {
 
-    EditText etDate;
-    EditText etTime;
-    SwitchCompat sc_hasTime;
-    DatePickerDialog.OnDateSetListener setDateListener;
-    TimePickerDialog.OnTimeSetListener setTimeListener;
+    private EditText et_Date;
+    private EditText et_Time;
+    private EditText et_Name;
+    private SwitchCompat sc_hasTime;
+    private Button btn_showResult;
+    private DatePickerDialog.OnDateSetListener setDateListener;
+    private TimePickerDialog.OnTimeSetListener setTimeListener;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_person, container, false);
 
-        etDate = (EditText) view.findViewById(R.id.et_birthday);
-        etTime = (EditText) view.findViewById(R.id.et_time);
+        et_Date = (EditText) view.findViewById(R.id.et_birthday);
+        et_Time = (EditText) view.findViewById(R.id.et_time);
+        et_Name = (EditText) view.findViewById(R.id.et_name);
         sc_hasTime = (SwitchCompat) view.findViewById(R.id.sc_has_time);
+        btn_showResult = (Button) view.findViewById(R.id.btn_result_person);
 
-        etDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        et_Date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus) {
-                    etDate.setShowSoftInputOnFocus(false);
+                    et_Date.setShowSoftInputOnFocus(false);
                     Calendar calendar = Calendar.getInstance();
                     int year = calendar.get(Calendar.YEAR);
                     int month = calendar.get(Calendar.MONTH);
@@ -57,11 +65,11 @@ public class FragmentPerson extends Fragment {
 
             }
         });
-        etTime.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        et_Time.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus) {
-                    etDate.setShowSoftInputOnFocus(false);
+                    et_Date.setShowSoftInputOnFocus(false);
                     Calendar calendar = Calendar.getInstance();
                     int hour = calendar.get(Calendar.HOUR);
                     int minute = calendar.get(Calendar.MINUTE);
@@ -82,9 +90,9 @@ public class FragmentPerson extends Fragment {
                 if(month < 10) formatMonth = "0" + month;
                 Log.e("DATE: ", formatDay + "/" + formatMonth + "/" + year);
                 String date = formatDay + "/" + formatMonth + "/" + year;
-                etDate.setText(date);
-                etTime.clearFocus();
-                etDate.setShowSoftInputOnFocus(true);
+                et_Date.setText(date);
+                et_Time.clearFocus();
+                et_Date.setShowSoftInputOnFocus(true);
             }
         };
         setTimeListener = new TimePickerDialog.OnTimeSetListener() {
@@ -96,11 +104,33 @@ public class FragmentPerson extends Fragment {
                 if(minute < 10) formatMinute = "0" + minute;
                 Log.e("DATE: ", formatHour + ":" + formatMinute);
                 String date = formatHour + ":" + formatMinute;
-                etTime.setText(date);
-                etTime.clearFocus();
-                etTime.setShowSoftInputOnFocus(true);
+                et_Time.setText(date);
+                et_Time.clearFocus();
+                et_Time.setShowSoftInputOnFocus(true);
             }
         };
+        onClick();
         return view;
     }
+    public void onClick()
+    {
+        btn_showResult.setOnClickListener(v -> {
+//            if(dataPasser != null)
+//            {
+//                dataPasser.onDataPass("THONG TIN CAN TRUYEN");
+//            }
+            Intent intent = new Intent(getActivity(), ShowResultPerson.class);
+            intent.putExtra("Name", "Tên: " + et_Name.getText().toString());
+            intent.putExtra("Birthday", "Ngày sinh: " + et_Date.getText().toString());
+            startActivity(intent);
+        });
+    }
+    @Override
+    public void onAttach(Context context)
+    {
+        super.onAttach(context);
+//        dataPasser = (OnDataPass) context;
+    }
+
+    // Gửi thông tin sang Activity khác
 }

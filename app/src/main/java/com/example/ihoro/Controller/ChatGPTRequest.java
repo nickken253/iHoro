@@ -14,7 +14,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class ChatGPTRequest extends AsyncTask<String, Void, String> {
-    private final String API_KEY = "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";
+    private final String API_KEY = "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";
     private final String API_URL = "https://api.openai.com/v1/completions";
 
     private final String TAG = ChatGPTRequest.class.getSimpleName();
@@ -24,7 +24,6 @@ public class ChatGPTRequest extends AsyncTask<String, Void, String> {
         String result = "";
 
         try {
-            // Set up the HTTP request
             URL url = new URL(API_URL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
@@ -32,25 +31,25 @@ public class ChatGPTRequest extends AsyncTask<String, Void, String> {
             con.setRequestProperty("Authorization", "Bearer " + API_KEY);
             con.setDoOutput(true);
 
-            // Build the JSON payload
             JSONObject payload = new JSONObject();
             try {
-                payload.put("model","text-curie-001");
+                payload.put("model","text-davinci-003");
                 payload.put("prompt", strings[0]);
-                payload.put("max_tokens", 100);
+                payload.put("max_tokens", 1024);
                 payload.put("temperature", 0.5);
                 payload.put("n", 1);
                 payload.put("stop", "");
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-            // Send the request
+
+            // Gửi request
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             out.write(payload.toString().getBytes(StandardCharsets.UTF_8));
             out.flush();
             out.close();
 
-            // Read the response
+            // Đọc phản hồi lại
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuilder response = new StringBuilder();
@@ -59,13 +58,12 @@ public class ChatGPTRequest extends AsyncTask<String, Void, String> {
             }
             in.close();
 
-            // Parse the response and return the text
+            // Đọc câu trả lời từ file JSON
             JSONObject jsonResponse = new JSONObject(response.toString());
             result = jsonResponse.getJSONArray("choices").getJSONObject(0).getString("text");
         } catch (Exception e) {
             Log.e(TAG, "Error occurred: " + e.getMessage());
         }
-
         return result;
     }
 }

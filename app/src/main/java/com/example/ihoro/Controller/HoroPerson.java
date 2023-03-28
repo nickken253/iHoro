@@ -34,17 +34,7 @@ public class HoroPerson extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horo_person);
 
-        // Nav Drawer
-//        final DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        findViewById(R.id.image_menu).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                drawerLayout.openDrawer(GravityCompat.START);
-//            }
-//        });
 
-        // Bottom Nav
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         MeowBottomNavigation bottomNavigation = findViewById(R.id.meowNavigation);
 
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_SAVED, R.drawable.outline_save_24));

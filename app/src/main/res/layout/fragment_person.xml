@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -36,6 +37,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.26" />
 
+    <!--    <Button-->
+<!--        android:id="@+id/btn_birthday"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"/>-->
+
     <TextView
         android:id="@+id/tv_tutor_2"
         android:layout_width="wrap_content"
@@ -47,50 +53,46 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.394" />
+
+        app:layout_constraintTop_toBottomOf="@+id/et_name"
+        app:layout_constraintVertical_bias="0.078" />
 
     <EditText
         android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
         android:layout_margin="30dp"
         android:background="@drawable/et_line"
         android:hint="Họ và tên"
         android:paddingStart="12dp"
+        android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHint="#878787"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.295" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_tutor_1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/et_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/et_line"
         android:hint="dd/mm/yyyy"
         android:paddingStart="12dp"
+
         android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHint="#878787"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444" />
-
-<!--    <Button-->
-<!--        android:id="@+id/btn_birthday"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"/>-->
+        app:layout_constraintTop_toBottomOf="@+id/tv_tutor_2" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sc_has_time"
@@ -100,12 +102,14 @@
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintEnd_toStartOf="@+id/et_time"
+
         app:layout_constraintHorizontal_bias="0.186"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.58"
+        app:layout_constraintTop_toBottomOf="@+id/et_birthday"
+        app:layout_constraintVertical_bias="0.122"
         app:switchMinWidth="50dp"
         app:thumbTint="@drawable/switch_thumb"
         app:trackTint="@drawable/switch_track" />
@@ -115,17 +119,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_marginTop="36dp"
         android:background="@drawable/et_line_small"
         android:hint="hh:mm"
         android:paddingStart="12dp"
         android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHint="#878787"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.655"
+        app:layout_constraintStart_toEndOf="@+id/sc_has_time"
+        app:layout_constraintTop_toBottomOf="@+id/et_birthday" />
+
+    <Button
+        android:id="@+id/btn_result_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_orange"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="5dp"
+        android:padding="20dp"
+        android:text="XEM KẾT QUẢ"
+        android:textAllCaps="true"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        app:layout_constraintTop_toBottomOf="@+id/et_birthday"
+        app:layout_constraintVertical_bias="0.56" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
