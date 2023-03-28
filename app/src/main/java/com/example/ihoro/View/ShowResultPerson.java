@@ -24,7 +24,7 @@ public class ShowResultPerson extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_result_person);
 
-        DataHoroscope dataHoroscope = new DataHoroscope();
+//        DataHoroscope dataHoroscope = new DataHoroscope();
 
         btn_close = (Button) findViewById(R.id.btn_close);
         tv_name = (TextView) findViewById(R.id.tv_person_info_name);

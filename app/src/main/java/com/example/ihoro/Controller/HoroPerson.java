@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -29,12 +31,13 @@ public class HoroPerson extends AppCompatActivity {
     private final int ID_INFOR = 5;
     private int preChoose = 1;
     private Fragment selectedFragment;
+//    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horo_person);
 
-
+//        viewPager = findViewById(R.id.vp_container);
         MeowBottomNavigation bottomNavigation = findViewById(R.id.meowNavigation);
 
         bottomNavigation.add(new MeowBottomNavigation.Model(ID_SAVED, R.drawable.outline_save_24));
@@ -48,42 +51,43 @@ public class HoroPerson extends AppCompatActivity {
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override
             public void onClickItem(MeowBottomNavigation.Model item) {
-                switch (item.getId())
-                {
-                    case ID_PERSON:
-                    {
+                switch (item.getId()) {
+                    case ID_PERSON: {
                         selectedFragment = new FragmentPerson();
-//                        preChoose = 1;
                         break;
                     }
-                    case ID_COUPLE:
-                    {
+                    case ID_COUPLE: {
                         selectedFragment = new FragmentCouple();
-//                        preChoose = 2;
                         break;
                     }
-                    case ID_NUMBER:
-                    {
+                    case ID_NUMBER: {
                         selectedFragment = new FragmentNumber();
-//                        preChoose = 3;
                         break;
                     }
-                    case ID_SAVED:
-                    {
+                    case ID_SAVED: {
                         selectedFragment = new FragmentSaved();
-//                        preChoose = 4;
                         break;
                     }
-                    case ID_INFOR:
-                    {
-                         selectedFragment = new FragmentMore();
-//                        bottomNavigation.show(preChoose, true);
-
+                    case ID_INFOR: {
+                        selectedFragment = new FragmentMore();
                         break;
                     }
 
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.horo_person_fragment_container, selectedFragment).commit();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                // Bổ sung animation cho transaction
+                if (item.getId() > preChoose) {
+                    transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                }
+                preChoose = item.getId();
+
+                // Thay thế Fragment hiện tại bằng Fragment mới
+                transaction.replace(R.id.horo_person_fragment_container, selectedFragment).commit();
+
+//                getSupportFragmentManager().beginTransaction().replace(R.id.horo_person_fragment_container, selectedFragment).commit();
             }
         });
         // bottomNavigation.setSelected();

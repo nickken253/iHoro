@@ -9,10 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
@@ -26,9 +28,9 @@ import java.util.Calendar;
 
 public class FragmentPerson extends Fragment {
 
-    private EditText et_Date;
-    private EditText et_Time;
-    private EditText et_Name;
+    private Button btn_Date;
+    private Button btn_Time;
+    private Button btn_Name;
     private SwitchCompat sc_hasTime;
     private Button btn_showResult;
     private DatePickerDialog.OnDateSetListener setDateListener;
@@ -38,48 +40,69 @@ public class FragmentPerson extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_person, container, false);
 
-        et_Date = (EditText) view.findViewById(R.id.et_birthday);
-        et_Time = (EditText) view.findViewById(R.id.et_time);
-        et_Name = (EditText) view.findViewById(R.id.et_name);
-        sc_hasTime = (SwitchCompat) view.findViewById(R.id.sc_has_time);
+        btn_Date = (Button) view.findViewById(R.id.btn_birthday);
+        btn_Time = (Button) view.findViewById(R.id.btn_time);
+        btn_Name = (Button) view.findViewById(R.id.btn_name);
         btn_showResult = (Button) view.findViewById(R.id.btn_result_person);
 
-        et_Date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        Spinner genderSpinner = (Spinner) view.findViewById(R.id.sp_gender);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.gender_array, R.layout.my_spinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genderSpinner.setAdapter(adapter);
+        genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    et_Date.setShowSoftInputOnFocus(false);
-                    Calendar calendar = Calendar.getInstance();
-                    int year = calendar.get(Calendar.YEAR);
-                    int month = calendar.get(Calendar.MONTH);
-                    int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                    DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setDateListener, year, month, day);
-                    dialog.show();
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0) { // nếu chọn hint
+                    genderSpinner.setSelection(-1); // gỡ bỏ hint
                 }
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
-        sc_hasTime.setOnClickListener(new View.OnClickListener() {
+        setDate();
+        onClick();
+        return view;
+    }
+    public void onClick()
+    {
+        btn_showResult.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ShowResultPerson.class);
+            intent.putExtra("Name", "Tên: " + btn_Name.getText().toString());
+            intent.putExtra("Birthday", "Ngày sinh: " + btn_Date.getText().toString());
+            startActivity(intent);
+        });
+        btn_Time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            }
-        });
-        et_Time.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    et_Date.setShowSoftInputOnFocus(false);
-                    Calendar calendar = Calendar.getInstance();
-                    int hour = calendar.get(Calendar.HOUR);
-                    int minute = calendar.get(Calendar.MINUTE);
+                btn_Date.setShowSoftInputOnFocus(false);
+                Calendar calendar = Calendar.getInstance();
+                int hour = calendar.get(Calendar.HOUR);
+                int minute = calendar.get(Calendar.MINUTE);
 
-                    TimePickerDialog dialog = new TimePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setTimeListener, hour, minute, true);
-                    dialog.show();
-                }
+                TimePickerDialog dialog = new TimePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setTimeListener, hour, minute, true);
+                dialog.show();
             }
         });
-//        share
+        btn_Date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_Date.setShowSoftInputOnFocus(false);
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setDateListener, year, month, day);
+                dialog.show();
+            }
+        });
+    }
+    public void setDate()
+    {
         setDateListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -90,9 +113,7 @@ public class FragmentPerson extends Fragment {
                 if(month < 10) formatMonth = "0" + month;
                 Log.e("DATE: ", formatDay + "/" + formatMonth + "/" + year);
                 String date = formatDay + "/" + formatMonth + "/" + year;
-                et_Date.setText(date);
-                et_Time.clearFocus();
-                et_Date.setShowSoftInputOnFocus(true);
+                btn_Date.setText(date);
             }
         };
         setTimeListener = new TimePickerDialog.OnTimeSetListener() {
@@ -104,33 +125,11 @@ public class FragmentPerson extends Fragment {
                 if(minute < 10) formatMinute = "0" + minute;
                 Log.e("DATE: ", formatHour + ":" + formatMinute);
                 String date = formatHour + ":" + formatMinute;
-                et_Time.setText(date);
-                et_Time.clearFocus();
-                et_Time.setShowSoftInputOnFocus(true);
+                btn_Time.setText(date);
+                btn_Time.clearFocus();
+                btn_Time.setShowSoftInputOnFocus(true);
             }
         };
-        onClick();
-        return view;
-    }
-    public void onClick()
-    {
-        btn_showResult.setOnClickListener(v -> {
-//            if(dataPasser != null)
-//            {
-//                dataPasser.onDataPass("THONG TIN CAN TRUYEN");
-//            }
-            Intent intent = new Intent(getActivity(), ShowResultPerson.class);
-            intent.putExtra("Name", "Tên: " + et_Name.getText().toString());
-            intent.putExtra("Birthday", "Ngày sinh: " + et_Date.getText().toString());
-            startActivity(intent);
-        });
-    }
-    @Override
-    public void onAttach(Context context)
-    {
-        super.onAttach(context);
-//        dataPasser = (OnDataPass) context;
-    }
 
-    // Gửi thông tin sang Activity khác
+    }
 }
