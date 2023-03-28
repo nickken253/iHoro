@@ -5,17 +5,35 @@
     android:orientation="vertical"
     android:id="@+id/radio_group">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chọn giới tính"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            />
 
         <RadioButton
             android:id="@+id/radio_male"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
             android:text="Nam" />
 
         <RadioButton
             android:id="@+id/radio_female"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
             android:text="Nữ" />
 
 

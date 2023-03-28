@@ -80,8 +80,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.158" />
 
-    <Button
-        android:id="@+id/btn_name"
+    <EditText
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -90,10 +90,10 @@
         android:hint="Họ và tên"
         android:paddingStart="12dp"
         android:singleLine="true"
-        android:textAlignment="textStart"
+
         android:textColor="@color/white"
         android:textColorHint="#878787"
-        android:textSize="17dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_person_view" />
@@ -111,11 +111,11 @@
         android:textAlignment="textStart"
         android:textColor="@color/white"
         android:textColorHint="#878787"
-        android:textSize="17dp"
+        android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
 <!--    <Spinner-->
 <!--        android:id="@+id/sp_gender"-->
@@ -137,8 +137,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:background="@drawable/et_line_small"
-        android:hint="Giờ sinh"
+        android:hint="Giới tính"
         android:paddingStart="12dp"
+        android:textAlignment="textStart"
+        android:textSize="18dp"
         android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHint="#878787"
@@ -158,8 +160,11 @@
         android:hint="Giờ sinh"
         android:paddingStart="12dp"
         android:singleLine="true"
+        android:textAlignment="textStart"
+        android:textSize="18dp"
         android:textColor="@color/white"
         android:textColorHint="#878787"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_gender"

@@ -3,6 +3,7 @@ package com.example.ihoro.Controller;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -14,8 +15,8 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class ChatGPTRequest extends AsyncTask<String, Void, String> {
-    private final String API_KEY = "YOUR_KEY";
-    private final String API_URL = "https://api.openai.com/v1/completions";
+    private final String API_KEY = "YOUR KEY";
+    private final String API_URL = "https://api.openai.com/v1/chat/completions";
 
     private final String TAG = ChatGPTRequest.class.getSimpleName();
 
@@ -31,10 +32,21 @@ public class ChatGPTRequest extends AsyncTask<String, Void, String> {
             con.setRequestProperty("Authorization", "Bearer " + API_KEY);
             con.setDoOutput(true);
 
+            JSONObject mess = new JSONObject();
+            try {
+                mess.put("role", "user");
+                mess.put("content", strings[0]);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+            JSONArray messages = new JSONArray();
+            messages.put(mess);
+
             JSONObject payload = new JSONObject();
             try {
-                payload.put("model","text-davinci-003");
-                payload.put("prompt", strings[0]);
+                payload.put("model","gpt-3.5-turbo");
+                payload.put("messages", messages);
                 payload.put("max_tokens", 1024);
                 payload.put("temperature", 0.5);
                 payload.put("n", 1);
@@ -60,7 +72,8 @@ public class ChatGPTRequest extends AsyncTask<String, Void, String> {
 
             // Đọc câu trả lời từ file JSON
             JSONObject jsonResponse = new JSONObject(response.toString());
-            result = jsonResponse.getJSONArray("choices").getJSONObject(0).getString("text");
+            result = jsonResponse.getJSONArray("choices").getJSONObject(0).getJSONObject("message").getString("content");
+            Log.e("RESULT", result);
         } catch (Exception e) {
             Log.e(TAG, "Error occurred: " + e.getMessage());
         }

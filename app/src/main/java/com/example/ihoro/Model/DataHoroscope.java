@@ -13,6 +13,63 @@ public class DataHoroscope {
     private List<List<String>> PhaSanVo;
     private List<List<String>> PhaSanChong;
     private List<String> GioSinh;
+
+    public List<String> getMonths() {
+        return months;
+    }
+
+    public void setMonths(List<String> months) {
+        this.months = months;
+    }
+
+    public List<String> getThienCan() {
+        return ThienCan;
+    }
+
+    public void setThienCan(List<String> thienCan) {
+        ThienCan = thienCan;
+    }
+
+    public List<String> getDiaChi() {
+        return DiaChi;
+    }
+
+    public void setDiaChi(List<String> diaChi) {
+        DiaChi = diaChi;
+    }
+
+    public List<String> getDays() {
+        return days;
+    }
+
+    public void setDays(List<String> days) {
+        this.days = days;
+    }
+
+    public List<List<String>> getPhaSanVo() {
+        return PhaSanVo;
+    }
+
+    public void setPhaSanVo(List<List<String>> phaSanVo) {
+        PhaSanVo = phaSanVo;
+    }
+
+    public List<List<String>> getPhaSanChong() {
+        return PhaSanChong;
+    }
+
+    public void setPhaSanChong(List<List<String>> phaSanChong) {
+        PhaSanChong = phaSanChong;
+    }
+
+    public List<String> getGioSinh() {
+        return GioSinh;
+    }
+
+    public void setGioSinh(List<String> gioSinh) {
+        GioSinh = gioSinh;
+    }
+
     public DataHoroscope()
     {
         //Ngày tốt ngày xấu
@@ -33,55 +90,55 @@ public class DataHoroscope {
         DiaChi = Arrays.asList(Chi);
 
         // Phá sản của vợ: tháng 1 -> tháng 0
-        List<String> tmpNull = new ArrayList<>();
-        tmpNull.add("");
-
-        List<String> tmp;
-        String[] VoTmp1 = {"Thân", "Tý", "Thìn"};
-        tmp = Arrays.asList(VoTmp1);
-        PhaSanVo.add(tmp);
-
-        String[] VoTmp2 = {"Hợi", "Mão", "Mùi"};
-        tmp = Arrays.asList(VoTmp2);
-        PhaSanVo.add(tmp);
-
-        PhaSanVo.add(tmpNull);
-        PhaSanVo.add(tmpNull);
-        PhaSanVo.add(tmpNull);
-        PhaSanVo.add(tmpNull);
-        PhaSanVo.add(tmpNull);
-        PhaSanVo.add(tmpNull);
-
-        String[] VoTmp3 = {"Dậu", "Sửu", "Tỵ", "Dần", "Ngọ", "Tuất"};
-        tmp = Arrays.asList(VoTmp3);
-        PhaSanVo.add(tmp);
-
-        PhaSanVo.add(tmpNull);
-        PhaSanVo.add(tmpNull);
-        PhaSanVo.add(tmpNull);
-
-        // Phá sản của chồng: tháng 1 -> tháng 0
-        PhaSanChong.add(tmpNull);
-        PhaSanChong.add(tmpNull);
-        PhaSanChong.add(tmpNull);
-        PhaSanChong.add(tmpNull);
-        PhaSanChong.add(tmpNull);
-        PhaSanChong.add(tmpNull);
-        PhaSanChong.add(tmpNull);
-        String[] ChongTmp2 = {"Hợi", "Mão", "Mùi"};
-        tmp = Arrays.asList(VoTmp2);
-        PhaSanChong.add(tmp);
-        String[] ChongTmp3 = {"Dậu", "Sửu", "Tỵ", "Dần", "Ngọ", "Tuất"};
-        tmp = Arrays.asList(VoTmp3);
-        PhaSanChong.add(tmp);
-        PhaSanChong.add(tmpNull);
-        PhaSanChong.add(tmpNull);
-        String[] ChongTmp1 = {"Thân", "Tý", "Thìn"};
-        tmp = Arrays.asList(VoTmp1);
-        PhaSanChong.add(tmp);
+//        List<String> tmpNull = new ArrayList<>();
+//        tmpNull.add("-");
+//
+//        List<String> tmp;
+//        String[] VoTmp1 = {"Thân", "Tý", "Thìn"};
+//        tmp = Arrays.asList(VoTmp1);
+//        PhaSanVo.add(tmp);
+//
+//        String[] VoTmp2 = {"Hợi", "Mão", "Mùi"};
+//        tmp = Arrays.asList(VoTmp2);
+//        PhaSanVo.add(tmp);
+//
+//        PhaSanVo.add(tmpNull);
+//        PhaSanVo.add(tmpNull);
+//        PhaSanVo.add(tmpNull);
+//        PhaSanVo.add(tmpNull);
+//        PhaSanVo.add(tmpNull);
+//        PhaSanVo.add(tmpNull);
+//
+//        String[] VoTmp3 = {"Dậu", "Sửu", "Tỵ", "Dần", "Ngọ", "Tuất"};
+//        tmp = Arrays.asList(VoTmp3);
+//        PhaSanVo.add(tmp);
+//
+//        PhaSanVo.add(tmpNull);
+//        PhaSanVo.add(tmpNull);
+//        PhaSanVo.add(tmpNull);
+//
+//        // Phá sản của chồng: tháng 1 -> tháng 0
+//        PhaSanChong.add(tmpNull);
+//        PhaSanChong.add(tmpNull);
+//        PhaSanChong.add(tmpNull);
+//        PhaSanChong.add(tmpNull);
+//        PhaSanChong.add(tmpNull);
+//        PhaSanChong.add(tmpNull);
+//        PhaSanChong.add(tmpNull);
+//        String[] ChongTmp2 = {"Hợi", "Mão", "Mùi"};
+//        tmp = Arrays.asList(VoTmp2);
+//        PhaSanChong.add(tmp);
+//        String[] ChongTmp3 = {"Dậu", "Sửu", "Tỵ", "Dần", "Ngọ", "Tuất"};
+//        tmp = Arrays.asList(VoTmp3);
+//        PhaSanChong.add(tmp);
+//        PhaSanChong.add(tmpNull);
+//        PhaSanChong.add(tmpNull);
+//        String[] ChongTmp1 = {"Thân", "Tý", "Thìn"};
+//        tmp = Arrays.asList(VoTmp1);
+//        PhaSanChong.add(tmp);
 
         //Giờ sinh
-        String[] gio = {"Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu"};
+        String[] GioSinh = {"Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu"};
 
     }
 }
