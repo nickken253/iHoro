@@ -70,6 +70,7 @@ public class FragmentPerson extends Fragment {
 //            }
 //        });
         setDate();
+
         onClick();
         return view;
     }
