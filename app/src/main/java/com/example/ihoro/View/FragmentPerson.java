@@ -3,7 +3,6 @@ package com.example.ihoro.View;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,20 +11,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.ihoro.Controller.ShowResultPerson;
 import com.example.ihoro.R;
 
 import java.util.Calendar;
@@ -52,23 +48,6 @@ public class FragmentPerson extends Fragment {
         btn_Gender = (Button) view.findViewById(R.id.btn_gender);
         btn_showResult = (Button) view.findViewById(R.id.btn_result_person);
 
-//        Spinner genderSpinner = (Spinner) view.findViewById(R.id.btn_gender);
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.gender_array, R.layout.my_spinner);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        genderSpinner.setAdapter(adapter);
-//        genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if(position == 0) { // nếu chọn hint
-//                    genderSpinner.setSelection(-1); // gỡ bỏ hint
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
         setDate();
 
         onClick();
@@ -78,43 +57,45 @@ public class FragmentPerson extends Fragment {
     {
 
         btn_showResult.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), ShowResultPerson.class);
-            intent.putExtra("Name", et_Name.getText().toString());
-            intent.putExtra("Gender", btn_Gender.getText().toString());
-            intent.putExtra("Birthday", btn_Date.getText().toString());
-            startActivity(intent);
-        });
-        btn_Time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                btn_Date.setShowSoftInputOnFocus(false);
-                Calendar calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR);
-                int minute = calendar.get(Calendar.MINUTE);
-
-                TimePickerDialog dialog = new TimePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setTimeListener, hour, minute, true);
-                dialog.show();
+            et_Name.clearFocus();
+            if(!checkFormInfo())
+            {
+                Toast.makeText(getActivity(), "Nhập thông tin sai format", Toast.LENGTH_SHORT).show();
             }
-        });
-        btn_Date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_Date.setShowSoftInputOnFocus(false);
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
+            else
+            {
+                Intent intent = new Intent(getActivity(), ShowResultPerson.class);
+                intent.putExtra("Name", et_Name.getText().toString());
+                intent.putExtra("Gender", btn_Gender.getText().toString());
+                intent.putExtra("Birthday", btn_Date.getText().toString());
+                startActivity(intent);
+            }
 
-                DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setDateListener, year, month, day);
-                dialog.show();
-            }
         });
-        btn_Gender.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showGenderDialog();
-            }
+        btn_Time.setOnClickListener(v -> {
+            et_Name.clearFocus();
+            btn_Date.setShowSoftInputOnFocus(false);
+            Calendar calendar = Calendar.getInstance();
+            int hour = calendar.get(Calendar.HOUR);
+            int minute = calendar.get(Calendar.MINUTE);
+
+            TimePickerDialog dialog = new TimePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setTimeListener, hour, minute, true);
+            dialog.show();
+        });
+        btn_Date.setOnClickListener(v -> {
+            et_Name.clearFocus();
+            btn_Date.setShowSoftInputOnFocus(false);
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog dialog = new DatePickerDialog(getContext(), android.R.style.Theme_DeviceDefault_Dialog, setDateListener, year, month, day);
+            dialog.show();
+        });
+        btn_Gender.setOnClickListener(v -> {
+            et_Name.clearFocus();
+            showGenderDialog();
         });
     }
     public void setDate()
@@ -177,5 +158,14 @@ public class FragmentPerson extends Fragment {
         });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+    private boolean checkFormInfo()
+    {
+        if(TextUtils.isEmpty(et_Name.getText())) return false;
+        if(TextUtils.isEmpty(btn_Date.getText())) return false;
+        if(TextUtils.isEmpty(btn_Gender.getText())) return false;
+        String dateRegex = "[0-9]{2}.[0-9]{2}.[0-9]{1,4}";
+        if(!btn_Date.getText().toString().matches(dateRegex)) return false;
+        return true;
     }
 }

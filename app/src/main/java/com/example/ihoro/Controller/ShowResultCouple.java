@@ -1,4 +1,4 @@
-package com.example.ihoro.View;
+package com.example.ihoro.Controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 

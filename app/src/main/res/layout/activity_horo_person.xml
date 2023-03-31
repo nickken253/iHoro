@@ -16,18 +16,12 @@
         android:scaleType="centerCrop"
         android:src="@drawable/bg_horo_person" />
 
-    <FrameLayout
-        android:id="@+id/horo_person_fragment_container"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/meowNavigation"
-        android:animateLayoutChanges="true"/>
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/vp_container"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginBottom="?android:actionBarSize"-->
-<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/meowNavigation"

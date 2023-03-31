@@ -1,4 +1,4 @@
-package com.example.ihoro.Controller;
+package com.example.ihoro.Model;
 
 public class ConvertDuongToAmLich {
     public int jdFromDate(int dd, int mm, int yy) {
@@ -187,4 +187,5 @@ public class ConvertDuongToAmLich {
         int monthStart = getNewMoonDay(k + off, timeZone);
         return jdToDate(monthStart + lunarDay - 1);
     }
+
 }
