@@ -12,7 +12,6 @@
     <color name="circleColor">#353635</color>
     <color name="backgroundBottomColor">#ee9561</color>
     <color name="shadowColor">#2E2E2E</color>
-
     <string-array name="gender_array">
         <item></item>
         <item>Nam</item>

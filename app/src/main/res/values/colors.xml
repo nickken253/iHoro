@@ -12,4 +12,5 @@
     <color name="orangeColor">#EE9561</color>
     <color name="strokeColor">#353635</color>
     <color name="orangeColorDark">#AB5D2F</color>
+    <color name="warningColor">#ad1a1a</color>
 </resources>

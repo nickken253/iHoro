@@ -51,13 +51,27 @@
         android:layout_height="wrap_content"
 
 
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         android:text="Ngày sinh (dương lịch) *:"
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.168"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning_name" />
+
+    <TextView
+        android:id="@+id/tv_warning_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Điền họ tên"
+        android:textColor="#FF0000"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
 
@@ -65,27 +79,41 @@
         android:id="@+id/tv_tutor_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="Giới tính *:"
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning_date" />
 
     <TextView
         android:id="@+id/tv_tutor_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="Giờ sinh:"
         android:textColor="#fff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning_date" />
+
+    <!--    <Spinner-->
+<!--        android:id="@+id/sp_gender"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="30dp"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:background="@drawable/et_line_small"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/btn_time"-->
+<!--        app:layout_constraintHorizontal_bias="0.1"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_birthday"-->
+<!--        app:layout_constraintVertical_bias="0.064" />-->
 
     <TextView
         android:id="@+id/tv_person_view"
@@ -102,21 +130,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
-
-    <!--    <Spinner-->
-<!--        android:id="@+id/sp_gender"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="30dp"-->
-<!--        android:layout_marginStart="52dp"-->
-<!--        android:background="@drawable/et_line_small"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/btn_time"-->
-<!--        app:layout_constraintHorizontal_bias="0.1"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/btn_birthday"-->
-<!--        app:layout_constraintVertical_bias="0.064" />-->
+        app:layout_constraintVertical_bias="0.082" />
 
     <EditText
         android:id="@+id/et_name"
@@ -156,6 +170,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_tutor_2" />
 
+    <TextView
+        android:id="@+id/tv_warning_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Chọn ngày sinh"
+        android:textColor="#FF0000"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_birthday" />
+
     <Button
         android:id="@+id/btn_gender"
         android:layout_width="wrap_content"
@@ -178,6 +206,20 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_tutor_3"
         app:layout_constraintVertical_bias="0.014" />
 
+    <TextView
+        android:id="@+id/tv_warning_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Chọn giới tính"
+        android:textColor="#FF0000"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_gender" />
+
     <Button
         android:id="@+id/btn_time"
         android:layout_width="wrap_content"
@@ -199,11 +241,20 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_tutor_4"
         app:layout_constraintVertical_bias="0.026" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/btn_result_person"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/btn_orange"
         android:drawableLeft="@drawable/baseline_search_24"
         android:drawablePadding="5dp"
@@ -211,12 +262,12 @@
         android:text="XEM KẾT QUẢ"
         android:textAllCaps="true"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_gender"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning_gender"
+        app:layout_constraintVertical_bias="0.206" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
