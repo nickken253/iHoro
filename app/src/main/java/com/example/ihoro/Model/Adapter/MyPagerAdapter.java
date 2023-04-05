@@ -1,4 +1,4 @@
-package com.example.ihoro.Model;
+package com.example.ihoro.Model.Adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

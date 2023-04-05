@@ -23,7 +23,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.ihoro.Controller.ShowResultPerson;
 import com.example.ihoro.R;
 
 import java.util.Calendar;
@@ -48,13 +47,13 @@ public class FragmentPerson extends Fragment {
         View view = inflater.inflate(R.layout.fragment_person, container, false);
 
 
-        btn_Date = (Button) view.findViewById(R.id.btn_birthday);
+        btn_Date = (Button) view.findViewById(R.id.btn_number_birthday);
         btn_Time = (Button) view.findViewById(R.id.btn_time);
-        et_Name = (EditText) view.findViewById(R.id.et_name);
+        et_Name = (EditText) view.findViewById(R.id.et_number_name);
         btn_Gender = (Button) view.findViewById(R.id.btn_gender);
-        btn_showResult = (Button) view.findViewById(R.id.btn_result_person);
-        tv_warning_name = (TextView) view.findViewById(R.id.tv_warning_name);
-        tv_warning_date = (TextView) view.findViewById(R.id.tv_warning_date);
+        btn_showResult = (Button) view.findViewById(R.id.btn_result_number);
+        tv_warning_name = (TextView) view.findViewById(R.id.tv_warning_number_name);
+        tv_warning_date = (TextView) view.findViewById(R.id.tv_warning_number_date);
         tv_warning_gender = (TextView) view.findViewById(R.id.tv_warning_gender);
         setDate();
 
@@ -77,9 +76,11 @@ public class FragmentPerson extends Fragment {
                 Toast.makeText(getActivity(), "Vui lòng nhập đủ thông tin", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent(getActivity(), ShowResultPerson.class);
+                intent.putExtra("Saved", false);
                 intent.putExtra("Name", et_Name.getText().toString());
                 intent.putExtra("Gender", btn_Gender.getText().toString());
                 intent.putExtra("Birthday", btn_Date.getText().toString());
+                intent.putExtra("Time",btn_Time.getText().toString());
                 startActivity(intent);
             }
 

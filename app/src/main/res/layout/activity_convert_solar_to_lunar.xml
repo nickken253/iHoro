@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    app:layout_constraintDimensionRatio="16:9"
+    tools:context=".View.ChatGPT">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/outline_keyboard_arrow_left_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.013"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.019" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/icielamerigraf"
+            android:text="ĐỔI LỊCH"
+            android:textAlignment="center"
+            android:textColor="#ee9561"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_saved"
+            app:layout_constraintStart_toEndOf="@+id/btn_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.019" />
+
+        <Button
+            android:id="@+id/btn_saved"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/outline_bookmark_remove_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.955"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49"
+            android:visibility="invisible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_input_solar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/et_line"
+        android:hint="Nhập ngày dương lịch"
+        android:paddingStart="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="#878787"
+        android:textSize="17dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_action_bar"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <Button
+
+        android:id="@+id/btn_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/btn_orange"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="5dp"
+        android:padding="20dp"
+        android:text="XEM KẾT QUẢ"
+        android:textAllCaps="true"
+
+
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_output_lunar" />
+
+    <TextView
+        android:id="@+id/tv_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+
+        android:text="Nhập ngày dương"
+        android:textColor="#FF0000"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_input_solar" />
+
+    <Button
+        android:id="@+id/btn_output_lunar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@drawable/et_line"
+        android:hint="Ngày âm lịch"
+        android:paddingStart="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="#878787"
+        android:textSize="17dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

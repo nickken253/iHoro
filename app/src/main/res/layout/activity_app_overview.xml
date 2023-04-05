@@ -4,10 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
+    android:background="#000"
     tools:context=".View.ChatGPT"
     android:id="@+id/mainLayout">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_chitiet"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_action_bar"
         android:layout_width="match_parent"
@@ -32,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:fontFamily="@font/icielamerigraf"
-            android:text="KẾT QUẢ"
+            android:text="ỨNG DỤNG"
             android:textAlignment="center"
             android:textColor="#ee9561"
             android:textSize="30dp"
@@ -47,30 +52,46 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:visibility="invisible"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/outline_bookmark_remove_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.955"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49"
+            android:visibility="invisible"/>
+        <Button
+            android:id="@+id/btn_unsaved"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:foreground="?android:attr/selectableItemBackground"
             android:background="@drawable/outline_bookmark_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.955"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"
             app:layout_constraintVertical_bias="0.49" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_below="@+id/layout_action_bar"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:scrollbarSize="10dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="20dp">
             <TextView
-                android:id="@+id/tv_couple_info_headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thông tin cặp đôi"
+                android:text="Thông tin nhà phát triển"
                 android:textSize="30dp"
                 android:textColor="@color/white"/>
             <LinearLayout
@@ -79,142 +100,9 @@
                 android:orientation="vertical"
                 android:layout_margin="20dp">
                 <TextView
-                    android:id="@+id/tv_couple_info_name_hus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tên chồng"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_birthday_hus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ngày sinh của chồng"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_lunar_birthday_hus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ngày sinh âm lịch"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_fate_hus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Cung"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="10dp"/>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="40dp"
-                    android:background="@android:color/darker_gray" />
-                <TextView
-                    android:id="@+id/tv_couple_info_name_wif"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tên vợ"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_birthday_wif"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ngày sinh của vợ"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_lunar_birthday_wif"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Ngày sinh âm lịch"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="10dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_fate_wif"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Cung"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="10dp"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="40dp"
-                android:background="@android:color/darker_gray" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Luận Cung mệnh"
-                android:textSize="30dp"
-                android:textColor="@color/white"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
-                <TextView
-                    android:id="@+id/tv_couple_info_fate_subhead"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mô tả ngắn gọn cho nội dung 2"
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_fate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mô tả ngắn gọn cho nội dung 2"
-                    android:textSize="15sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:layout_marginTop="16dp"/>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="40dp"
-                android:background="@android:color/darker_gray" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Luận Thập Nhị Địa Chi"
-                android:textSize="30sp"
-                android:textColor="@color/white"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
-                <TextView
-                    android:id="@+id/tv_couple_info_can_chi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mô tả ngắn gọn cho nội dung 3"
-                    android:textSize="15sp"
-                    android:textColor="@color/white"
-                    android:textAlignment="center"
-                    android:layout_marginTop="16dp"/>
-                <TextView
-                    android:id="@+id/tv_couple_info_can_chi_conclude"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mô tả ngắn gọn cho nội dung 3"
+                    android:text="@string/AppInfo"
                     android:textSize="20dp"
                     android:textColor="@color/white"
                     android:layout_marginTop="16dp"/>
@@ -227,7 +115,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lời khuyên cho bạn"
+                android:text="Thông tin ứng dụng"
                 android:textSize="30dp"
                 android:textColor="@color/white"/>
             <LinearLayout
@@ -236,14 +124,43 @@
                 android:orientation="vertical"
                 android:layout_margin="20dp">
                 <TextView
-                    android:id="@+id/tv_couple_advice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Mô tả ngắn gọn cho nội dung 2"
+                    android:text="Phiên bản: 1.0.0\n\nNgôn ngữ: Tiếng Việt"
                     android:textSize="20dp"
                     android:textColor="@color/white"
                     android:layout_marginTop="16dp"/>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/darker_gray" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tài liệu tham khảo"
+                android:textSize="30dp"
+                android:textColor="@color/white"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thông thơ đồ hình - Hà Tấn Phát\n\nBát trạch chánh tông - Viên Tài, Hà Tấn Phát\n\nTử vi đẩu số tân biên - Vân Đằng Thái Thứ Lang\n\nVà các chiêm nghiệm cá nhân ..."
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/darker_gray" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

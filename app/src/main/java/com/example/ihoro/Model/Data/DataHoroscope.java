@@ -1,4 +1,4 @@
-package com.example.ihoro.Model;
+package com.example.ihoro.Model.Data;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -7,13 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 public class DataHoroscope {
-    private List<String> months;
-    private List<String> ThienCan;
-    private List<String> DiaChi;
-    private List<String> days;
-    private List<List<String>> PhaSanVo = new ArrayList<>();
-    private List<List<String>> PhaSanChong = new ArrayList<>();
-    private List<String> GioSinh;
+    private List<String> months = new ArrayList<>();
+    private List<String> ThienCan = new ArrayList<>();
+    private List<String> DiaChi = new ArrayList<>();
+    private List<String[]> days = new ArrayList<>();
+
+    private List<String[]> PhaSanVo = new ArrayList<>();
+    private List<String[]> PhaSanChong = new ArrayList<>();
+    private List<String> GioSinh = new ArrayList<>();
 
     private List<String[]> ThienCanTotXauChu = new ArrayList<String[]>();
     private List<int[]> ThienCanTotXauSo = new ArrayList<int[]>();
@@ -30,75 +31,31 @@ public class DataHoroscope {
     private List<String> SaoChieuMang = new ArrayList<>();
     private List<String[]> LuanSaoChieuMangChu = new ArrayList<>();
     private List<int[]> LuanSaoChieuMangSo = new ArrayList<>();
-    private List<String[]> GiaiSaoChieuMang = new ArrayList<>();
+    private List<Map.Entry<String, String>> CungMenh = new ArrayList<>();
+
+    private List<String[]> CoThanQuaTuNam = new ArrayList<>();
+    private List<String[]> CoThanQuaTuNu = new ArrayList<>();
+    private List<String> Menh = new ArrayList<>();
+
+    public List<String> getGiaiSaoKetLuan() {
+        return GiaiSaoKetLuan;
+    }
+
+    private List<String> GiaiSaoKetLuan = new ArrayList<>();
 
     // -------------------------------------
-    public List<String> getMonths() {
-        return months;
-    }
-
-    public void setMonths(List<String> months) {
-        this.months = months;
-    }
-
-    public List<String> getThienCan() {
-        return ThienCan;
-    }
-
-    public void setThienCan(List<String> thienCan) {
-        ThienCan = thienCan;
-    }
-
-    public List<String> getDiaChi() {
-        return DiaChi;
-    }
-
-    public void setDiaChi(List<String> diaChi) {
-        DiaChi = diaChi;
-    }
-
-    public List<String> getDays() {
-        return days;
-    }
-
-    public void setDays(List<String> days) {
-        this.days = days;
-    }
-
-    public List<List<String>> getPhaSanVo() {
-        return PhaSanVo;
-    }
-
-    public void setPhaSanVo(List<List<String>> phaSanVo) {
-        PhaSanVo = phaSanVo;
-    }
-
-    public List<List<String>> getPhaSanChong() {
-        return PhaSanChong;
-    }
-
-    public void setPhaSanChong(List<List<String>> phaSanChong) {
-        PhaSanChong = phaSanChong;
-    }
-
-    public List<String> getGioSinh() {
-        return GioSinh;
-    }
-
-    public void setGioSinh(List<String> gioSinh) {
-        GioSinh = gioSinh;
-    }
 
     public DataHoroscope() {
-        //Ngày tốt ngày xấu
+        //Ngày tốt ngày xấu - DONE
         {
-            String[] tmpDay = {"Số khắc cha khắc mẹ, khắc vợ chồng, con cái. Phải đi xa xứ lập nghiệp mới mong được yên ổn.",
+            days.add(new String[]{
+                    "Số khắc cha khắc mẹ, khắc vợ chồng, con cái. Phải đi xa xứ lập nghiệp mới mong được yên ổn.",
                     "Bố mẹ thường mất sớm trước 60, 66 tuổi, hoặc nếu có lấy vợ, lấy chồng thì các bạn sẽ không được lâu bền.",
                     "Có số đi xa xứ, khi đó được nhiều người nể trọng, từ tầm 36 tuổi trở lên làm ăn phát đạt.",
                     "Nhà có điều kiện cha mẹ để lại, lớn lên có của. Tuy nhiên, phải tu tâm dưỡng tính thì mới đỡ buồn rầu.",
                     "Số này là số vinh hoa, gặp ngày làm giàu, phải tu chí thì sẽ đạt được sang trọng.",
-                    "Số mai sau lớn lên hay chơi bời, bỏ nhà đàn đúm với bạn bè làm cho cha mẹ buồn phiền lo nghĩ. Người này dễ hư hỏng, một số người thì nghiện ngập hoặc tù tội, phạm pháp. Là con gái thì khắc chồng và nhiều bạn bè."};
-            days = Arrays.asList(tmpDay);
+                    "Số mai sau lớn lên hay chơi bời, bỏ nhà đàn đúm với bạn bè làm cho cha mẹ buồn phiền lo nghĩ. Người này dễ hư hỏng, một số người thì nghiện ngập hoặc tù tội, phạm pháp. Là con gái thì khắc chồng và nhiều bạn bè."
+            });
         }
         // Thiên Can 10 năm: Quý = năm - 3 = 0
         String[] Can = {"Quý", "Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm"};
@@ -107,81 +64,44 @@ public class DataHoroscope {
         // Địa Chi 12 năm: Hợi = năm - 3 chia hết cho 12
         String[] Chi = {"Hợi", "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất"};
         DiaChi = Arrays.asList(Chi);
-        // Số phá sản
+        // Số phá sản - DONE
         {
             ArrayList<String> tmpNull = new ArrayList<>();
             tmpNull.add("-");
             ArrayList<String> tmp = new ArrayList<>();
             // Phá sản của vợ: tháng 1 -> tháng 0
             {
-                tmp.add("Thân");
-                tmp.add("Tý");
-                tmp.add("Thìn");
-                PhaSanVo.add(tmp);
-
-                tmp.clear();
-                tmp.add("Hợi");
-                tmp.add("Mão");
-                tmp.add("Mùi");
-                PhaSanVo.add(tmp);
-
-                PhaSanVo.add(tmpNull);
-                PhaSanVo.add(tmpNull);
-                PhaSanVo.add(tmpNull);
-                PhaSanVo.add(tmpNull);
-                PhaSanVo.add(tmpNull);
-                PhaSanVo.add(tmpNull);
-
-                tmp.clear();
-                tmp.add("Dậu");
-                tmp.add("Sửu");
-                tmp.add("Tỵ");
-                tmp.add("Dần");
-                tmp.add("Ngọ");
-                tmp.add("Tuất");
-                PhaSanVo.add(tmp);
-
-                PhaSanVo.add(tmpNull);
-                PhaSanVo.add(tmpNull);
-                PhaSanVo.add(tmpNull);
+                PhaSanVo.add(new String[]{"Thân", "Tý", "Thìn"});
+                PhaSanVo.add(new String[]{"Hợi", "Mão", "Mùi"});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{"Dậu", "Sửu", "Tỵ", "Dần", "Ngọ", "Tuất"});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{" "});
+                PhaSanVo.add(new String[]{" "});
             }
             // Phá sản của chồng: tháng 1 -> tháng 0
             {
-                PhaSanChong.add(tmpNull);
-                PhaSanChong.add(tmpNull);
-                PhaSanChong.add(tmpNull);
-                PhaSanChong.add(tmpNull);
-                PhaSanChong.add(tmpNull);
-                PhaSanChong.add(tmpNull);
-                PhaSanChong.add(tmpNull);
-
-                tmp.clear();
-                tmp.add("Hợi");
-                tmp.add("Mão");
-                tmp.add("Mùi");
-                PhaSanChong.add(tmp);
-
-                tmp.clear();
-                tmp.add("Dậu");
-                tmp.add("Sửu");
-                tmp.add("Tỵ");
-                tmp.add("Dần");
-                tmp.add("Ngọ");
-                tmp.add("Tuất");
-                PhaSanChong.add(tmp);
-
-                PhaSanChong.add(tmpNull);
-                PhaSanChong.add(tmpNull);
-
-                tmp.clear();
-                tmp.add("Thân");
-                tmp.add("Tý");
-                tmp.add("Thìn");
-                PhaSanChong.add(tmp);
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{"Hợi", "Mão", "Mùi"});
+                PhaSanChong.add(new String[]{"Dậu", "Sửu", "Tỵ", "Dần", "Ngọ", "Tuất"});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{" "});
+                PhaSanChong.add(new String[]{"Thân", "Tý", "Thìn"});
             }
         }
 
-        // Giờ sinh
+        // Giờ sinh - DONE
         {
             String[] gioSinh = {"Hợi", "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất"};
             GioSinh = Arrays.asList(gioSinh);
@@ -201,7 +121,7 @@ public class DataHoroscope {
             listStartHour.add(new AbstractMap.SimpleEntry<>(22, 0));
         }
 
-        // Thiên can tốt xấu
+        // Thiên can tốt xấu - DONE
         {
             ThienCanTotXauChu.add(new String[]{" ",
                     "Số phạm Cô Thần, số khắc vợ chồng, khắc con, lại thêm phận bạc, lại có anh em không hòa, mọi việc tự lo liệu.",
@@ -273,7 +193,7 @@ public class DataHoroscope {
             */
         }
 
-        // Giờ sinh luận theo tháng.
+        // Giờ sinh luận theo tháng. - DONE
         {
             // Từ tháng sinh so theo giờ sinh mà ra.
             /*
@@ -282,7 +202,7 @@ public class DataHoroscope {
             1  - 2   - 3   - 4   - 5    - 6  - 7   - 8   - 9    - 10  - 11   - 12
              */
 
-            GioTheoThangChu.add(new String[]{" ",
+            GioTheoThangChu.add(new String[]{
                     "Số này sinh phạm vào giờ chết non.",
                     "Số này sinh phạm vào giờ chết non.",
                     "Số này sinh phạm vào giờ chết non.",
@@ -325,10 +245,10 @@ public class DataHoroscope {
 
         }
 
-        // Giờ sinh luận theo tháng kiểu 2.
+        // Giờ sinh luận theo tháng kiểu 2. - DONE
         {
             // Từ giờ sinh so theo tháng sinh mà ra.
-            GioTheoThang2Chu.add(new String[]{" ",
+            GioTheoThang2Chu.add(new String[]{
                     "Người này phạm giờ chết do bị bỏng, chết cháy.",
                     "Người này phạm giờ chết do bị bỏng, chết cháy.",
                     "Người sinh giờ này cẩn thận chết do tai nạn xe cộ, ngã xe, ngã ngựa",
@@ -371,7 +291,7 @@ public class DataHoroscope {
             GioTheoThang2So.add(new int[]{6, 12, 4, 10, 6, 12, 2, 4, 6, 3, 6, 9, 12, 4, 5});
         }
 
-        // Người tuổi gì, sinh giờ này trai không chồng, gái không vợ.
+        // Người tuổi gì, sinh giờ này trai không vợ, gái không chồng. - DONE
         {
             /*
             Hợi là số 12 - 0
@@ -396,7 +316,7 @@ public class DataHoroscope {
             GioKhongVoChong.add(new int[]{12, 11, 0, 0});
         }
 
-        // Coi người này tuổi gì, cốt con gì
+        // Coi người này tuổi gì, cốt con gì - DONE
         {
             CotConGiChu.add(new String[]{" ",
                     "Người cốt Trâu là người tính ngay thẳng với người, đi xa hay gặp được anh em bạn bè tử tế. Những việc làm có ích cho đời thì không cần được đền ơn vẫn làm hoài.",
@@ -438,11 +358,15 @@ public class DataHoroscope {
             CotConGiSo.add(new int[]{12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11});
         }
 
-        // Cung Mệnh suy luận ra sao chiếu mạng
+        // Cung Mệnh suy luận ra sao chiếu mạng vợ chồng - DONE
         {
             // Trường Sinh = 1
-            SaoChieuMang = Arrays.asList(" ", "Trường Sinh", "Mộc Dục", "Quan Đài", "Lâm Quan", "Đế Vượng", "Suy", "Bệnh Phù", "Tử", "Mộ", "Tuyệt", "Thai", "Dường");
-
+            SaoChieuMang = Arrays.asList("Trường Sinh (Thiện Tinh)",
+                    "Mộc Dục (Dâm Tinh)", "Quan Đài (Quý Tinh)",
+                    "Lâm Quan (Tùy Tinh)", "Đế Vượng (Phúc Tinh)",
+                    "Suy (Hung Tinh)", "Bệnh Phù (Bại Tinh)", "Tử (Ác Tinh)",
+                    "Mộ (Phù Tinh)", "Tuyệt (Hung Tinh)", "Thai (Tùy Tinh)", "Dưỡng (Phù Tinh)");
+            Menh = Arrays.asList("Kim", "Mộc", "Thủy", "Hỏa", "Thổ");
             // Kim = 0
             LuanSaoChieuMangSo.add(new int[]{4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3});
             LuanSaoChieuMangSo.add(new int[]{10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9});
@@ -450,20 +374,167 @@ public class DataHoroscope {
             LuanSaoChieuMangSo.add(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
             LuanSaoChieuMangSo.add(new int[]{7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6});
 
-            LuanSaoChieuMangChu.add(new String[]{" ",
-                    "Cha mẹ tích đức dày công\nNên nay con hưởng phước hồng Trường sinh\n Vợ chồng duyên nợ được thành\n Trăm năm tơ tóc, yến anh giao hòa\n Sống lâu an hưởng một nhà\n Trọn đời có một, dâu là có hai\n Tôi trai, tớ gái hàng ngày\n Số này có đức, hậu lại được nhờ.\n=> Số này trọn tốt.",
-                    "Chẳng may số  hề  ở trời,\nSanh nhằm  Mộc Dục  đổi đời căn duyên\nHôn nhân  trắc trở chớ phiền\nMột đời thứ nhứt không yên gia đình\nĐời sau vương vấn linh đình,\nThứ ba hoà hiệp chung tình trăm năm\nLo cho huynh đệ nhất tâm\nViệc  rồi kết oán thù thâm  nở đành.\n=> Số này trước  xấu sau tốt.",
-                    "Than ôi trong cảnh phòng loan\nSinh nhầm Quan Đài đeo mang nợ tình\nHai đời phải chịu linh đình\nThình lình gặp mối chung tình tứ ba\nNgày sau nên cửa nên nhà\nĐến già trọn đạo gọi là phu thê\nTrong bề gia đạo bề huề\nTrề gia nội trợ mọi bề đặng an\n=> Số này trước xấu sau tốt",
-                    "Hỡi thân phận bạc sau này\nLâm Quan rủi gặp nỗi này đớn đau\nVợ chồng ai cũng ước ao\nTại sao có bạn khác nào như không\nCác sông các núi vợ chồng\nY tình không hạp loan phòng quạnh hiu\nNhớ trong buồn tuổi bao nhiêu\nĐến khi gặp mặt khó yêu tình chàng\n=> số này phải chịu trọn đời",
-                    "Khá nên tích đức thi công\nSanh nhằm Đế Vượng phước hồng tương giao\nHôn nhân gặp chỗ sang giàu\nMột đời thông thả cùng nhau phỉ nguyền\nThiên nhiên sở định lương duyên\nThượng hòa hạ lục miêng miêng đời đời\nSố này duyên nợ chẳng dời\nThảnh thơi lo liệu an nơi gia đình\n=> Số này trước sau trọn tốt",
-                    "Thảm thay căn số vô phần\nGặp duyên bạc phận sanh nhầm chữ Suy\nGặp nhau hiềm tỵ khác gì tù nhân\nĐôi co nhiều tiếng thiệt hơn\nSâm thương hai ngã như đờn thiếu giây\nHai đời phải chịu đổi xây\nThứ ba mới đặng sum vầy nợ duyên\n=> Số này trước xấu sau tốt",
-                    "Thảm buồn cho cảnh nợ duyên\nSanh nhầm chữ Bệnh lụy liên gia đình\nThở than phiền trách phận mình\nRồi đây thọ lãnh giữ gìn lư hương\nSanh ly tử biệt hai đường\nDẫu mà không thác tang lương chia lìa\nThứ nhì mới đặng đó đây sum vầy\n=> số này đời thứ nhất không đặng, đời thứ 2 mới tốt",
-                    "Câu rằng phu phụ thình thâm\nPhạm nay chữ Tử vương nhằm cho ta\nVợ chồng không đặng hiệp hòa\nKhông trùng duyên nợ đâu mà bình an\nMột đời thứ nhất lo toan\nKhông lìa thì thác hai đàng biệt ly\nĐời sau trọng nghĩa trọn nghi\nKết nguyền tơ tóc phải thì bền lâu\n=> Số này trước xấu sau tốt",
-                    "Vợ chồng nghĩa nặng tình thâm\nSanh nhầm chữ Mộ vương lâm cho chàng\nCăn duyên mù mịt lỡ làng\nKhi tan, khi hiệp đôi đàng mới xong\nTrước đời xóm kiến chòm ong\nĐời sau quy hiệp bưởi hồng đa đoan\nVợ chồng mới đặng bình an\nĐến sau rồi cũng bình an một mình\n=> Số này vợ chồng lộn xộn rồi cũng góa",
-                    "Vợ chồng duyên nợ chẳng lành\nSanh nhằm chữ Tuyệt bao đành sầu đau\nThêm sầu số phận quản bao\nXem trong duyên nợ khắc hào phu thê\nMãng lo tranh đấu bộn bề\nTrải qua bao độ già tề mới ăn\nBởi do số hệ chớ than\nKỳ ba trời định mới an gia đình\n=> Số này hai đời không bền,đời thứ ba mới bền",
-                    "Hồng nhan cốt cách xanh tươi\nXuê xoa ăn mặc, tiếng cười có duyên\nDè đâu tình nghĩa ưu phiền\nLương duyên thứ nhất vẹn tuyền đặng đâu\nCủa tiền hao tốn ngỏ hầu\nThứ nhì mới đặng giao đầu phụng loan\nPhỉ nguyền tình thiếp nghĩa chàng\nGia đình phát đạt đặng an một nhà\n=> Số này thứ nhì mới đặng bền vững",
-                    "Số này trời đất cho ta\nVợ chồng phối ngẫu giao hòa bình an\nPhụng loan kết cánh bầy đàn\nMột năm sanh dưỡng phòng loan kịp kỳ\nĂn mặc đầy đủ số no\nVợ chồng một tuổi vậy thời giàu sang\nChớ lo duyên nợ lỡ làng\nVợ chồng hòa hiệp luận bàn thất gia\n=> Số này vợ chồng đồng một tuổi và một tháng sanh thì đặng giàu sang và trong một năm thì có con mau chóng"
+            LuanSaoChieuMangChu.add(new String[]{
+                    "Cha mẹ tích đức dày công,\nNên nay con hưởng phước hồng Trường sinh.\nVợ chồng duyên nợ được thành,\nTrăm năm tơ tóc, yến anh giao hòa.\nSống lâu an hưởng một nhà,\nTrọn đời có một, dâu là có hai.\nTôi trai, tớ gái hàng ngày,\nSố này có đức, hậu lại được nhờ.\n\n=> Số này trọn tốt.",
+                    "Chẳng may số  hề  ở trời,\nSanh nhằm  Mộc Dục  đổi đời căn duyên.\nHôn nhân  trắc trở chớ phiền,\nMột đời thứ nhứt không yên gia đình.\nĐời sau vương vấn linh đình,\nThứ ba hoà hiệp chung tình trăm năm.\nLo cho huynh đệ nhất tâm,\nViệc rồi kết oán thù thâm nỡ đành.\n\n=> Số này trước  xấu sau tốt.",
+                    "Than ôi trong cảnh phòng loan,\nSinh nhầm Quan Đài đeo mang nợ tình.\nHai đời phải chịu linh đình,\nThình lình gặp mối chung tình tứ ba.\nNgày sau nên cửa nên nhà,\nĐến già trọn đạo gọi là phu thê.\nTrong bề gia đạo bề huề,\nTrề gia nội trợ mọi bề đặng an.\n\n=> Số này trước xấu sau tốt",
+                    "Hỡi thân phận bạc sau này,\nLâm Quan rủi gặp nỗi này đớn đau.\nVợ chồng ai cũng ước ao,\nTại sao có bạn khác nào như không.\nCác sông các núi vợ chồng,\nY tình không hạp loan phòng quạnh hiu.\nNhớ trong buồn tuổi bao nhiêu,\nĐến khi gặp mặt khó yêu tình chàng.\n\n=> số này phải chịu trọn đời",
+                    "Khá nên tích đức thi công,\nSanh nhằm Đế Vượng phước hồng tương giao.\nHôn nhân gặp chỗ sang giàu,\nMột đời thông thả cùng nhau phỉ nguyền.\nThiên nhiên sở định lương duyên,\nThượng hòa hạ lục miêng miêng đời đời.\nSố này duyên nợ chẳng dời,\nThảnh thơi lo liệu an nơi gia đình.\n\n=> Số này trước sau trọn tốt",
+                    "Thảm thay căn số vô phần,\nGặp duyên bạc phận sanh nhầm chữ Suy.\nMạng ai nấy tính không tùy,\nGặp nhau hiềm tỵ khác gì tù nhân.\nĐôi co nhiều tiếng thiệt hơn,\nSâm thương hai ngã như đờn thiếu giây.\nHai đời phải chịu đổi xây,\nThứ ba mới đặng sum vầy nợ duyên.\n\n=> Số này trước xấu sau tốt",
+                    "Thảm buồn cho cảnh nợ duyên,\nSanh nhầm chữ Bệnh lụy liên gia đình.\nThở than phiền trách phận mình,\nRồi đây thọ lãnh giữ gìn lư hương.\nSanh ly tử biệt hai đường,\nDẫu mà không thác tang lương chia lìa.\nThứ nhì mới đặng đó đây sum vầy.\n\n=> số này đời thứ nhất không đặng, đời thứ 2 mới tốt",
+                    "Câu rằng phu phụ tình thâm,\nPhạm nay chữ Tử vương nhằm cho ta.\nVợ chồng không đặng hiệp hòa,\nKhông trùng duyên nợ đâu mà bình an.\nMột đời thứ nhất lo toan,\nKhông lìa thì thác hai đàng biệt ly.\nĐời sau trọng nghĩa trọn nghi,\nKết nguyền tơ tóc phải thì bền lâu.\n\n=> Số này trước xấu sau tốt",
+                    "Vợ chồng nghĩa nặng tình thâm,\nSanh nhầm chữ Mộ vương lâm cho chàng.\nCăn duyên mù mịt lỡ làng,\nKhi tan, khi hiệp đôi đàng mới xong.\nTrước đời xóm kiến chòm ong,\nĐời sau quy hiệp bưởi hồng đa đoan.\nVợ chồng mới đặng bình an,\nĐến sau rồi cũng bình an một mình.\n\n=> Số này vợ chồng lộn xộn rồi cũng góa",
+                    "Vợ chồng duyên nợ chẳng lành,\nSanh nhằm chữ Tuyệt bao đành sầu đau.\nThêm sầu số phận quản bao,\nXem trong duyên nợ khắc hào phu thê.\nMãng lo tranh đấu bộn bề,\nTrải qua bao độ già tề mới ăn.\nBởi do số hệ chớ than,\nKỳ ba trời định mới an gia đình.\n\n=> Số này hai đời không bền,đời thứ ba mới bền",
+                    "Hồng nhan cốt cách xanh tươi,\nXuê xoa ăn mặc, tiếng cười có duyên.\nDè đâu tình nghĩa ưu phiền,\nLương duyên thứ nhất vẹn tuyền đặng đâu.\nCủa tiền hao tốn ngỏ hầu,\nThứ nhì mới đặng giao đầu phụng loan.\nPhỉ nguyền tình thiếp nghĩa chàng,\nGia đình phát đạt đặng an một nhà.\n\n=> Số này thứ nhì mới đặng bền vững",
+                    "Số này trời đất cho ta,\nVợ chồng phối ngẫu giao hòa bình an.\nPhụng loan kết cánh bầy đàn,\nMột năm sanh dưỡng phòng loan kịp kỳ.\nĂn mặc đầy đủ số no,\nVợ chồng một tuổi vậy thời giàu sang.\nChớ lo duyên nợ lỡ làng,\nVợ chồng hòa hiệp luận bàn thất gia.\n\n=> Số này vợ chồng đồng một tuổi và một tháng sanh thì đặng giàu sang và trong một năm thì có con mau chóng"
             });
+            GiaiSaoKetLuan = Arrays.asList(
+                    "Đây là sao đại diện cho sự phước thọ, sinh khí, thịnh vượng. Cung Mệnh có sao này thường chỉ người mập mạp, to lớn, nhân từ và có sức khỏe tốt.",
+                    "Đây là sao đại diện cho sự dâm dật, phong tình, ưa tắm gội, sạch sẽ, trưng diện. Cung Mệnh có sao này thường chỉ người nông nổi, bất định, dễ thay đổi và bỏ dở công việc ở giữa chừng.",
+                    "Đây là sao đại diện cho sự quyền uy, chức vụ, công danh lớn mạnh, chức vị và thi khoa cử. Cung Mệnh có sao này thường chỉ người có gia đình khá giả, quần áo chỉnh tề.",
+                    "Đây là sao đại diện cho sự khoe khoang, tự phụ, may mắn, quyền quý. Cung Mệnh có sao này thường chỉ người thích làm dáng, làm điệu, điệu bộ, nói năng kiểu cách",
+                    "Đây là sao đại diện cho sự thịnh vượng, gia tăng tài lộc, con cái. Cung Mệnh có sao này thường chỉ người uy nghi, đường bệ, tính tình quảng đại, từ thiện, bác ái, có tài lãnh đạo, có óc lãnh tụ.",
+                    "Đây là sao đại diện cho sự sa sút, yếu đuối. Cung Mệnh có sao này thường chỉ người có tài khéo, thích hợp với ngành có sự tỉ mỉ, chính xác, có hoa tay, còn có sự suy yếu, sa sút, không thành đạt, yếu đuối về thể xác, bất định, hay lo, đưa đến lao tổn",
+                    "Đây là sao đại diện cho sự đau yếu, bệnh tật, buồn rầu.",
+                    "Đây là sao đại diện cho sự đa sầu, đa cảm, buồn phiền, thăng trầm, kín đáo. Cung Mệnh có sao này thường chỉ người hay suy nghĩ sâu xa, tính toán kỹ lưỡng, có kế hoạch.",
+                    "Đây là sao đại diện cho sự đần độn, chậm, tối, u mê, tiêu tán, khô cạn, ngăn trở công việc.",
+                    "Đây là sao đại diện cho sự tiêu diệt, bế tắc, chấm dứt, khô cạn, ngăn trở công danh. Cung Mệnh có sao này thường chỉ người khôn ngoan, đa mưu túc trí, có tay nghề đặc sắc.",
+                    "Đây là sao đại diện cho sự phong lưu khoái lạc, u mê, sinh nở, dễ tin. Cung Mệnh có sao này thường chỉ người ham vui, thích chơi bời, phóng đãng, dễ tin người, nhẹ dạ, tính tình không dứt khoát, khó cầu công danh, thi cử",
+                    "Đây là sao đại diện cho sự chăm chỉ, cẩn thận, cần cù, nuôi nấng, duy trì. Cung Mệnh có sao này thường chỉ người có tính tình chăm chỉ, cẩn thận, cần cù, có tên riêng, tên đặc biệt, tên cúng cơm, biệt danh, biệt hiệu, có sự thay đổi tên họ."
+            );
         }
+
+
+
+        // Luận Cô thần Quả tú - DONE
+        {
+            // Nam mệnh
+            CoThanQuaTuNam.add(new String[]{"Tý", "Sửu", "Tỵ", "Ngọ", "Mùi", "Hợi"});
+            CoThanQuaTuNam.add(new String[]{" "});
+            CoThanQuaTuNam.add(new String[]{" "});
+            CoThanQuaTuNam.add(new String[]{"Dần", "Mão", "Thìn", "Thân", "Dậu", "Tuất"});
+            CoThanQuaTuNam.add(new String[]{" "});
+            CoThanQuaTuNam.add(new String[]{" "});
+            CoThanQuaTuNam.add(new String[]{"Tý", "Sửu", "Tỵ", "Ngọ", "Mùi", "Hợi"});
+            CoThanQuaTuNam.add(new String[]{" "});
+            CoThanQuaTuNam.add(new String[]{" "});
+            CoThanQuaTuNam.add(new String[]{"Dần", "Mão", "Thìn", "Thân", "Dậu", "Tuất"});
+            CoThanQuaTuNam.add(new String[]{" "});
+            CoThanQuaTuNam.add(new String[]{" "});
+
+            // Nữ mệnh
+            CoThanQuaTuNu.add(new String[]{"Tỵ", "Hợi"});
+            CoThanQuaTuNu.add(new String[]{"Tý", "Ngọ"});
+            CoThanQuaTuNu.add(new String[]{"Sửu", "Mùi"});
+            CoThanQuaTuNu.add(new String[]{"Dần", "Thân"});
+            CoThanQuaTuNu.add(new String[]{"Mão", "Dậu"});
+            CoThanQuaTuNu.add(new String[]{"Thìn", "Tuất"});
+            CoThanQuaTuNu.add(new String[]{"Tỵ", "Hợi"});
+            CoThanQuaTuNu.add(new String[]{"Tý", "Ngọ"});
+            CoThanQuaTuNu.add(new String[]{"Sửu", "Mùi"});
+            CoThanQuaTuNu.add(new String[]{"Dần", "Thân"});
+            CoThanQuaTuNu.add(new String[]{"Mão", "Dậu"});
+            CoThanQuaTuNu.add(new String[]{"Thìn", "Tuất"});
+        }
+
+
+    }
+
+    public List<String> getMonths() {
+        return months;
+    }
+
+    public List<String> getThienCan() {
+        return ThienCan;
+    }
+
+    public List<String> getDiaChi() {
+        return DiaChi;
+    }
+
+    public List<String[]> getDays() {
+        return days;
+    }
+
+    public List<String[]> getPhaSanVo() {
+        return PhaSanVo;
+    }
+
+    public List<String[]> getPhaSanChong() {
+        return PhaSanChong;
+    }
+
+    public List<String> getGioSinh() {
+        return GioSinh;
+    }
+
+    public List<String[]> getThienCanTotXauChu() {
+        return ThienCanTotXauChu;
+    }
+
+    public List<int[]> getThienCanTotXauSo() {
+        return ThienCanTotXauSo;
+    }
+
+    public List<Map.Entry<Integer, Integer>> getListStartHour() {
+        return listStartHour;
+    }
+
+    public List<int[]> getGioTheoThangSo() {
+        return GioTheoThangSo;
+    }
+
+    public List<String[]> getGioTheoThangChu() {
+        return GioTheoThangChu;
+    }
+
+    public List<int[]> getGioTheoThang2So() {
+        return GioTheoThang2So;
+    }
+
+    public List<String[]> getGioTheoThang2Chu() {
+        return GioTheoThang2Chu;
+    }
+
+    public List<int[]> getGioKhongVoChong() {
+        return GioKhongVoChong;
+    }
+
+    public List<String[]> getCotConGiChu() {
+        return CotConGiChu;
+    }
+
+    public List<int[]> getCotConGiSo() {
+        return CotConGiSo;
+    }
+
+    public List<String> getSaoChieuMang() {
+        return SaoChieuMang;
+    }
+
+    public List<String[]> getLuanSaoChieuMangChu() {
+        return LuanSaoChieuMangChu;
+    }
+
+    public List<int[]> getLuanSaoChieuMangSo() {
+        return LuanSaoChieuMangSo;
+    }
+
+
+    public List<Map.Entry<String, String>> getCungMenh() {
+        return CungMenh;
+    }
+
+
+    public List<String[]> getCoThanQuaTuNam() {
+        return CoThanQuaTuNam;
+    }
+
+    public List<String[]> getCoThanQuaTuNu() {
+        return CoThanQuaTuNu;
+    }
+
+    public List<String> getMenh() {
+        return Menh;
     }
 }

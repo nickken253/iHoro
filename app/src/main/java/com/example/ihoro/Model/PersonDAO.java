@@ -24,4 +24,6 @@ public interface PersonDAO {
 
     @Delete
     void delete(Person person);
+    @Query("DELETE FROM persons WHERE id = :id")
+    void deleteById(int id);
 }

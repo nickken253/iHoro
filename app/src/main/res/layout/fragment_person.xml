@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_person_view" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_number_view" />
 
     <TextView
         android:id="@+id/tv_tutor_2"
@@ -59,10 +59,10 @@
 
         app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_warning_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning_number_name" />
 
     <TextView
-        android:id="@+id/tv_warning_name"
+        android:id="@+id/tv_warning_number_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_number_name" />
 
     <TextView
         android:id="@+id/tv_tutor_3"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_warning_date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning_number_date" />
 
     <TextView
         android:id="@+id/tv_tutor_4"
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_warning_date" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_warning_number_date" />
 
     <!--    <Spinner-->
 <!--        android:id="@+id/sp_gender"-->
@@ -116,7 +116,7 @@
 <!--        app:layout_constraintVertical_bias="0.064" />-->
 
     <TextView
-        android:id="@+id/tv_person_view"
+        android:id="@+id/tv_number_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -133,7 +133,7 @@
         app:layout_constraintVertical_bias="0.082" />
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/et_number_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -152,7 +152,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_tutor_1" />
 
     <Button
-        android:id="@+id/btn_birthday"
+        android:id="@+id/btn_number_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -171,7 +171,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_tutor_2" />
 
     <TextView
-        android:id="@+id/tv_warning_date"
+        android:id="@+id/tv_warning_number_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -182,7 +182,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_birthday" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_number_birthday" />
 
     <Button
         android:id="@+id/btn_gender"
@@ -250,7 +250,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_result_person"
+        android:id="@+id/btn_result_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
