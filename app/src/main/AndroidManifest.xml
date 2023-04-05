@@ -32,9 +32,6 @@
             android:name=".View.ShowResultPerson"
             android:exported="false" />
         <activity
-            android:name=".View.EnterInformation"
-            android:exported="false" />
-        <activity
             android:name=".View.ChatGPT"
             android:exported="false" />
         <activity

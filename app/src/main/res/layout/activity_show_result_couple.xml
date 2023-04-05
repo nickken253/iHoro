@@ -8,6 +8,11 @@
     tools:context=".View.ChatGPT"
     android:id="@+id/mainLayout">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_chitiet"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_action_bar"
         android:layout_width="match_parent"

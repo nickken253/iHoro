@@ -17,9 +17,7 @@ import java.nio.charset.StandardCharsets;
 public class ChatGPTRequest extends AsyncTask<String, Void, String> {
     private final String API_KEY = "YOUR KEY";
     private final String API_URL = "https://api.openai.com/v1/chat/completions";
-
     private final String TAG = ChatGPTRequest.class.getSimpleName();
-
     @Override
     protected String doInBackground(String... strings) {
         String result = "";
