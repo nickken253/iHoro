@@ -314,7 +314,7 @@ public class ShowResultPerson extends AppCompatActivity {
         }
         if (thangSinh.equals("")) thangSinh = "Nhờ phước ông bà cha mẹ, bạn sinh vào tháng tốt, không phạm phải vấn đề gì nghiêm trọng.";
         Log.e("THÁNG SINH", thangSinh);
-        thangSinh = "Bạn hãy vào vai 1 bà đồng, truyền tải lại những ý sau, wording cho khác đi nhưng không được thay đổi ý nghĩa và tên riêng: " + thangSinh;
+//        thangSinh = thangSinh;
 //        new ChatGPTRequest() {
 //            @Override
 //            protected void onPostExecute(String result) {
