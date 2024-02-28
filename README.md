@@ -1,4 +1,4 @@
-# P-Connect
+# iHoro - Horoscope Viewing
 
 ## Tác giả / Author
 
